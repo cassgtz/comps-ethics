@@ -1,0 +1,73 @@
+\documentclass[10pt,twocolumn]{article} 
+
+% required packages for Oxy Comps style
+\usepackage{oxycomps} % the main oxycomps style file
+\usepackage{times} % use Times as the default font
+\usepackage[style=numeric,sorting=nyt]{biblatex} % format the bibliography nicely
+
+\usepackage{amsfonts} % provides many math symbols/fonts
+\usepackage{listings} % provides the lstlisting environment
+\usepackage{amssymb} % provides many math symbols/fonts
+\usepackage{graphicx} % allows insertion of grpahics
+\usepackage{hyperref} % creates links within the page and to URLs
+\usepackage{url} % formats URLs properly
+\usepackage{verbatim} % provides the comment environment
+\usepackage{xpatch} % used to patch \textcite
+
+\bibliography{references}
+\DeclareNameAlias{default}{last-first}
+
+\xpatchbibmacro{textcite}
+  {\printnames{labelname}}
+  {\printnames{labelname} (\printfield{year})}
+  {}
+  {}
+
+\pdfinfo{
+    /Title (CS Comps Literature Review)
+    /Author (Cassandra Gutierrez)
+}
+
+\title{CS Ethics Paper}
+
+\author{Cassandra Gutierrez}
+\affiliation{Occidental College}
+\email{gutierrezc@oxy.edu}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+There are various ethical issues that have been at the forefront of discussions revolving around the use and effects of technology in our society. This paper will go over the ethical concerns surrounding my comps project, a smartphone application that generates a store-specific grocery list tailored to users’ calorie and macro nutritional goals. This article will explicitly address the issues of potential misuse, data privacy, and accessibility with respect to my comps project.
+\end{abstract}
+
+\section{Context}
+In order to understand the ethical concerns at hand, we must understand the scope of the project. The proposed application is meant to help users reach their fitness and health goals by fulfilling nutritional needs. The idea is that users will be able to enter and customize their desired caloric and macro nutritional targets. Users will then have the option to choose from a number of grocery stores. For scraping purposes, the options will be limited to grocery stores that provide all of their products’ nutritional information on the website. After that, an algorithm will generate a list with brand-specific products from that grocery store whose nutritional values sum up to the user’s inputted target.
+
+\section{Potential Misuse}
+There exists dietary guidelines for individuals all across the globe that are necessary for maintaining good health and reducing risks of chronic diseases. These guidelines include recommendations for calorie intake as well as macro nutrient intake, which are the central focus of the proposed application. The ability for users to customize their own calorie and macro nutrient intake poses the risk of not following the recommended guidelines for good health. This allows for potential for misuse of the application, especially for enabling eating disorders and unhealthy eating.
+
+The calorie counting feature of the application has the potential to enable eating disorders. To demonstrate, in a 2017 study 150 individuals with eating disorders were surveyed about their usage of a health application that included a feature to track food intake.\cite{psyd} Of those who participated in the study, 74.3\% reported using the application to count their calories and 73.1\% of those participants reported the app to be a contributor to their eating disorder symptoms. This means that calorie tracking is a component that contributes to the perpetuation of eating disorders. Since the proposed comps project will allow users to set their own calorie intake, and thereby give users the ability to count calories, it will also encourage eating disorder behaviors. This is a potential case of misuse as the app is meant to help users attain health goals as opposed to perpetuating eating disorders. It's very crucial to address the ethics of giving another enabling application to persons suffering from eating disorders, especially with the number of eating disorders on the rise due to the pandemic.\cite{katella_2021}
+
+Additionally, the proposed application’s ability to customize macro nutrients has the potential to enable fad diets that do not align with recommended dietary guidelines. For example, the ketogenic diet is a diet deprived of the macro nutrient carbohydrate in order to force the body to use other forms of fuel, such as stored fat. The goal of a ketogenic diet is to lower body fat composition and ultimately lose weight. The proposed application can potentially help individuals follow these types of fad diets because a user can simply adjust their macro nutrients to zero carbohydrates. However, carbohydrates are an essential part of a healthy diet. The Dietary Guidelines for Americans recommend that carbohydrates make up 45-65\% of an individual’s total daily calories. They are the body’s primary source of energy and are essential in fueling various bodily functions and protecting against diseases.\cite{mayo_clinic_2022} According to Harvard health, a fad diet like the ketogenic one causes a deficiency in nutrients, liver and kidney problems, constipation, and mood swings.\cite{harvard_health_2020} Those who are unaware of the negative effects of straying away from dietary guidelines may misuse the proposed application to partake in fad diets. Therefore, the application has the potential to enable unhealthy eating habits for users. Again, this is in direct opposition to the initial goal of assisting users in achieving their nutritional and fitness goals. 
+
+\section{Data Privacy}
+The topic of data privacy is also a major concern for the proposed comps project. The application will be able to collect data about what users are eating, from the grocery list outputs, and exactly how much they are eating, from the users’ calorie and macro nutrient inputs. These are ethical concerns over what entities will have access to this data and how they will use it. Data from fitness and diet applications are highly valuable for the market research industry. However, this type of data has the potential to be used unethically. 
+
+Companies can use diet data to target individuals with advertisements about products that would help them meet their goals, based on individual user data. For instance, if a user is entering a low amount of calories, it can be inferred that their goal is to lose weight. Similarly, if a user is entering a low amount of carbohydrates, it can be inferred that they’re on a ketogenic diet and are trying to lose fat. Companies often analyze data this way to then exploit it for marketing strategies and target individuals with advertisements.\cite{privacy_international_2021} This is the main issue at hand as there are great ethical concerns over fitness and diet related advertisements and marketing. First, the Federal Trade Commission has described many weight loss advertisements to be scams as they are misleading, make false promises, and are unhealthy.\cite{hebert_hernandez_perkins_puig_2022} This means that the application’s data has the potential to be used maliciously to target users with dishonest advertisements for the sake of capital gain. Furthermore, fitness and weight loss advertisements have been identified to be responsible for the development and exacerbation of many mental illnesses like body dysmorphia, eating disorders, and depression.\cite{shukla_2017} This means that companies will often exploit and perpetuate mental illnesses through user-targeted advertisements by third parties. Since companies do this by utilizing the same type of data as the proposed application’s, the application has the potential to contribute to a public health risk. While this can be solved by not sharing or selling data with third parties, there are still ways that it can be accessed by third parties.
+
+For instance, in a study that explored how the diet industry exploits user data, researchers examined the traffic between different fitness/dieting applications and third parties.\cite{privacy_international_2021} They found that one particular application, BetterMe, did not appear to be sharing data with any third parties due to their privacy policy. However, the researchers found that everytime they inputted data (e.g. answering a question that the application asked) a GET request was sent to various third parties like Google Analytics, Facebook, and Yandex. A GET request is an HTTP method to retrieve data from a server. BetterMe was simply seeking to collect and process some data, and unintentionally shared it with those third parties, according to one explanation. Although it might not have shared all its data, third parties can still use it to target users with advertisements. For instance, the researchers found that BetterMe inadvertently shared the gender data of users. They would be able to use this data to target users with gender-specific advertisements. This aims to demonstrate that data processing systems can include loopholes that allow third parties to obtain access to data, even without doing so on purpose. Because there are significant dangers of third parties gaining access to this data, as previously stated, the application's data protection system must be carefully considered in order for the application to remain ethical. 
+
+\section{Accessibility}
+Another important factor to consider is the inaccessibility of the proposed application. The adopted method for assisting users in achieving their dietary objectives is not one that everyone can utilize. More specifically, those who have food allergies and are low-income would not be able to utilize it. 
+
+First, the proposed application is not inclusive of users with food allergies or non-standard diets. When scraping through the grocery stores’ products and their nutritional values, the products’ allergy information is not taken into account. This is mainly due to limitations on time for the complexity of the proposed application. This means that the application may potentially generate a list of grocery products that contain an ingredient to which a user might be allergic. According to the Asthma and Allergy Foundation of America, 10.8\%, or 32 million, of United States adults have food allergies.\cite{AAFA_2021} This means that there’s a large portion of the population that would not be able to use the application because they may be allergic to some of the products that the algorithm generated. This is problematic because food allergies can result in anaphylaxis, which is a life-threatening reaction. In fact, a food allergy is one of the most common triggers for anaphylaxis.\cite{AAFA_2021} It would be inconvenient for these users to verify each product individually to see if it is safe to eat. Even if they did, they would be unable to substitute the product for another because the nutritional content may differ, defeating the purpose of the application. As a result, the application is inaccessible to anyone with food allergies because it poses a health risk. 
+
+Second, the proposed application is inaccessible to low-income individuals because it does not take into consideration the user’s budget. Again, this is due to time constraints imposed by the application's complexity. The algorithm will generate products solely on the basis of calories and macro nutrients, regardless of price. As a result, users will be unable to set a limit on the total cost of the grocery list that will be generated. This means that if a user can't afford to buy all of the things that the app generates, they won't be able to utilize it. According to the United States Census Bureau, in the year 2020 there were 11.4\%, or 37.2 million, people living in poverty.\cite{bureau_2022} This means that there is a significant portion of the population that most likely would not be able to afford to use the application. This makes it inaccessible to those who are low income or simply cannot fit the output into their budget. 
+
+\section{Conclusion}
+The proposed comps project has many issues that must be addressed in order to be an ethical project. Specifically, it has the potential to pose a public health risk, exacerbate eating disorders, exploit user data, and exclude certain users from being able to utilize it. While there are various solutions to these issues, they may not be attainable due to time and complexity constraints on the project. 
+
+\printbibliography
+\end{document}
